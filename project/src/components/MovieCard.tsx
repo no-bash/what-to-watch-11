@@ -5,6 +5,7 @@ const MovieCard = ({name, img, genre, releaseDate}: IMovieData): JSX.Element => 
   <article className="small-film-card catalog__films-card">
     <div className="small-film-card__image">
 
+      {/*eslint-disable-next-line*/}
       <img src={require(`../../public/img/${img}.jpg`)}
 
         alt={'name'} width="280" height="175"
