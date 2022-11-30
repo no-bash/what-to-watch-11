@@ -91,17 +91,17 @@ const MoviePageDetails = () => (
                 <p className='film-card__details-item'>
                   <strong className='film-card__details-name'>Starring</strong>
                   <span className='film-card__details-value'>
-                    Bill Murray, <br />
-                    Edward Norton, <br />
-                    Jude Law, <br />
-                    Willem Dafoe, <br />
-                    Saoirse Ronan, <br />
-                    Tony Revoloru, <br />
-                    Tilda Swinton, <br />
-                    Tom Wilkinson, <br />
-                    Owen Wilkinson, <br />
-                    Adrien Brody, <br />
-                    Ralph Fiennes, <br />
+                    Bill Murray,
+                    Edward Norton,
+                    Jude Law,
+                    Willem Dafoe,
+                    Saoirse Ronan,
+                    Tony Revoloru,
+                    Tilda Swinton,
+                    Tom Wilkinson,
+                    Owen Wilkinson,
+                    Adrien Brody,
+                    Ralph Fiennes,
                     Jeff Goldblum
                   </span>
                 </p>
@@ -139,8 +139,8 @@ const MoviePageDetails = () => (
               />
             </div>
             <h3 className='small-film-card__title'>
-              <a className='small-film-card__link' href='film-page.html'>Fantastic Beasts: The Crimes of
-                  Grindelwald
+              <a className='small-film-card__link' href='film-page.html'>
+                Fantastic Beasts: The Crimes of Grindelwald
               </a>
             </h3>
           </article>
@@ -190,4 +190,4 @@ const MoviePageDetails = () => (
     </div>
   </>
 );
-export default MoviePageDetails
+export default MoviePageDetails;

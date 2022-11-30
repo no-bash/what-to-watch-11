@@ -51,4 +51,4 @@ const SignIn = () => (
     </footer>
   </div>
 );
-export default SignIn
+export default SignIn;

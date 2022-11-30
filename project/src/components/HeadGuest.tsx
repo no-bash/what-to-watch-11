@@ -1,11 +1,8 @@
-import React from 'react';
-
-
 const HeadGuest = () => (
   <section className='film-card'>
     <div className='film-card__bg'>
       {/*<img src='img/bg-the-grand-budapest-hotel.jpg' alt='The Grand Budapest Hotel' />*/}
-      <img src='img/bg-header.jpg'/>
+      <img src={'img/bg-header.jpg'}/>
     </div>
 
     <h1 className='visually-hidden'>WTW</h1>
@@ -20,7 +17,7 @@ const HeadGuest = () => (
       </div>
 
       <div className='user-block'>
-        <a href='sign-in.html' className='user-block__link'>Sign in</a>
+        <a href={'sign-in.html'} className='user-block__link'>Sign in</a>
       </div>
     </header>
 

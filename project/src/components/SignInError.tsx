@@ -54,4 +54,4 @@ const SignInError = () => (
     </footer>
   </div>
 );
-export default SignInError
+export default SignInError;

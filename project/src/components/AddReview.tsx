@@ -1,6 +1,4 @@
-import React from 'react';
-
-const AddReview = () => (
+const AddReview = (): JSX.Element => (
   <section className='film-card film-card--full'>
     <div className='film-card__header'>
       <div className='film-card__bg'>
@@ -99,4 +97,4 @@ const AddReview = () => (
 
   </section>
 );
-export default AddReview
+export default AddReview;

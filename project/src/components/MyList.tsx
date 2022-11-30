@@ -132,4 +132,4 @@ const MyList = () => (
     </footer>
   </div>
 );
-export default MyList
+export default MyList;

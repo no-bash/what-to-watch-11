@@ -26,7 +26,7 @@ const MoviePageReviews = () => (
               </div>
             </li>
             <li className='user-block__item'>
-              <a className='user-block__link' href={'signOut'}>Sign out</a>
+              <a className='user-block__link'>Sign out</a>
             </li>
           </ul>
         </header>
@@ -77,7 +77,7 @@ const MoviePageReviews = () => (
                   <a href='#' className='film-nav__link'>Details</a>
                 </li>
                 <li className='film-nav__item film-nav__item--active'>
-                  <a href='#' className='film-nav__link'>Reviews</a>
+                  <a href={'#'} className='film-nav__link'>Reviews</a>
                 </li>
               </ul>
             </nav>
@@ -87,7 +87,7 @@ const MoviePageReviews = () => (
                 <div className='review'>
                   <blockquote className='review__quote'>
                     <p className='review__text'>Discerning travellers and Wes Anderson fans will luxuriate in the
-                        glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed
+                        glorious Mittel-European kitsch of one of the director&apos;s funniest and most exquisitely designed
                         films in years.
                     </p>
 
@@ -102,8 +102,8 @@ const MoviePageReviews = () => (
 
                 <div className='review'>
                   <blockquote className='review__quote'>
-                    <p className='review__text'>Anderson's films are too precious for some, but for those of us
-                        willing to lose ourselves in them, they're a delight. 'The Grand Budapest Hotel' is no
+                    <p className='review__text'>Anderson&apos;s films are too precious for some, but for those of us
+                        willing to lose ourselves in them, they&apos;re a delight. &apos;The Grand Budapest Hotel&apos; is no
                         different, except that he has added a hint of gravitas to the mix, improving the recipe.
                     </p>
 
@@ -118,8 +118,8 @@ const MoviePageReviews = () => (
 
                 <div className='review'>
                   <blockquote className='review__quote'>
-                    <p className='review__text'>I didn't find it amusing, and while I can appreciate the creativity,
-                        it's an hour and 40 minutes I wish I could take back.
+                    <p className='review__text'>I didn&apos;t find it amusing, and while I can appreciate the creativity,
+                        it&apos;s an hour and 40 minutes I wish I could take back.
                     </p>
 
                     <footer className='review__details'>
@@ -232,7 +232,7 @@ const MoviePageReviews = () => (
 
       <footer className='page-footer'>
         <div className='logo'>
-          <a href='main.html' className='logo__link logo__link--light'>
+          <a href={'main.html'} className='logo__link logo__link--light'>
             <span className='logo__letter logo__letter--1'>W</span>
             <span className='logo__letter logo__letter--2'>T</span>
             <span className='logo__letter logo__letter--3'>W</span>
@@ -246,5 +246,4 @@ const MoviePageReviews = () => (
     </div>
   </>
 );
-
-export default MoviePageReviews
+export default MoviePageReviews;

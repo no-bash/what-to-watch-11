@@ -54,4 +54,4 @@ const SignInMessage = () => (
     </footer>
   </div>
 );
-export default SignInMessage
+export default SignInMessage;
