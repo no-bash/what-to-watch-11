@@ -1,23 +1,13 @@
-import React from 'react';
-import {Route} from "react-router-dom";
-import SignIn from "./SignIn";
+import {Navigate} from 'react-router-dom';
 
-interface IRouterProps {
-  Component: JSX.Element,
-  path: string,
-  auth: boolean,
-
-}
-const ProtectedRoute => (
-  {
-    user,
-    redirectPath = '/landing',
-    children,
-                        }) => {
-  if (!user) {
-    return <Navigate to={redirectPath} replace />;
-  }
-
-  return children ? children : <Outlet />;
+type PrivateRouteProps = {
+  children: JSX.Element;
 };
-export default PrivateRoute
+
+const PrivateRoute = ({children}: PrivateRouteProps): JSX.Element => {
+  const hasAccess = true;
+
+  return hasAccess ? children : <Navigate to={'/login'} />;
+};
+
+export default PrivateRoute;

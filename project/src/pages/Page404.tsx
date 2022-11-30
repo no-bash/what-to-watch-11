@@ -1,14 +1,7 @@
-import React from "react";
-
-
-const Page404 = () => {
-  return(
-    <>
-      <h2>404 Page Not Found</h2>
-      <span>
-        return to main page
-      </span>
-    </>
-  )
-}
+const Page404 = (): JSX.Element => (
+  <div>
+    <h2>404 Page Not Found</h2>
+    <span>To main page</span>
+  </div>
+);
 export default Page404;
