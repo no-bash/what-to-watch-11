@@ -1,9 +1,14 @@
 import React from 'react';
 import {IMovieData} from '../index';
 
-const MovieCard = ({name, img, genre, releaseDate}: IMovieData): JSX.Element => (
+interface ImovieCardProps extends IMovieData {
+  onHover: (name: string) => void;
+}
 
-  <article className='small-film-card catalog__films-card'>
+
+const MovieCard = ({name, img, genre, releaseDate, onHover}: ImovieCardProps): JSX.Element => (
+
+  <article className='small-film-card catalog__films-card' onMouseEnter={() => onHover(name)}>
     <div className='small-film-card__image'>
 
       {/*eslint-disable-next-line*/}
