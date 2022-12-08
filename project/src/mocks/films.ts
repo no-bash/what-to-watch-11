@@ -1,11 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './components/app/app';
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
-
 
 export interface IMovieData {
   name: string;
@@ -105,7 +97,7 @@ const movieData: IMovieData[] = [
     releaseDate: 1,
   },
   {
-    name: 'Midnight Special1',
+    name: 'Midnight Special',
     img: 'midnight-special',
     genre: '',
     releaseDate: 1,
@@ -141,9 +133,3 @@ const movieData: IMovieData[] = [
     releaseDate: 1,
   },
 ];
-
-root.render(
-  <React.StrictMode>
-    <App movieData={movieData} />
-  </React.StrictMode>,
-);

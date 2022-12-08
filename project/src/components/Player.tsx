@@ -1,8 +1,9 @@
 import React from 'react';
+import {IplayerData} from "./app/app";
 
-const Player = () => (
+const Player = ({runTime, videoLink}: IplayerData) => (
   <div className='player'>
-    <video src='#' className='player__video' poster='img/player-poster.jpg'></video>
+    <video src={videoLink} className='player__video' poster='img/player-poster.jpg'></video>
 
     <button type='button' className='player__exit'>Exit</button>
 
@@ -12,7 +13,7 @@ const Player = () => (
           <progress className='player__progress' value='30' max='100'></progress>
           <div className='player__toggler' style={{left: '30%' }}>Toggler</div>
         </div>
-        <div className='player__time-value'>1:30:29</div>
+        <div className='player__time-value'>{runTime}</div>
       </div>
 
       <div className='player__controls-row'>
