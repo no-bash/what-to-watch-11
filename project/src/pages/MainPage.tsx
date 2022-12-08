@@ -7,7 +7,8 @@ const mainCardData: IMovieData = {
   name: 'The Grand Budapest Hotel',
   img: 'the-grand-budapest-hotel-poster',
   genre: 'Drama',
-  releaseDate: 2014
+  releaseDate: 2014,
+  previewVideoLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
 };
 
 
