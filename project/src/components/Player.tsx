@@ -1,5 +1,5 @@
 import React from 'react';
-import {IplayerData} from "./app/app";
+import {IplayerData} from './app/app';
 
 const Player = ({runTime, videoLink}: IplayerData) => (
   <div className='player'>
