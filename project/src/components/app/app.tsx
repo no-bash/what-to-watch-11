@@ -1,7 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import MainPage from '../../pages/MainPage';
-import {IMovieData} from '../../index';
 import SignIn from '../SignIn';
 import MyList from '../MyList';
 import Player from '../Player';
@@ -42,15 +41,15 @@ const playerData: IplayerData = {
   videoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4'
 };
 
-function App({ movieData }: { movieData: IMovieData[] }): JSX.Element {
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={'/'} element={<MainPage movieData={movieData} />} />
+        <Route path={'/'} element={<MainPage />} />
         <Route path={'/login'} element={<SignIn />} />
         <Route path='mylist' element={
           <PrivateRoute>
-            <MyList movieData={movieData} />
+            <MyList />
           </PrivateRoute>
         }
         />

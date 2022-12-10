@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import MovieCard from '../components/MovieCard';
 import MainCard from '../components/MainCard';
-import {IMovieData} from '../index';
+import {IMovieData} from '../types/types';
+import {useDispatch, useSelector} from 'react-redux';
+import {InitialState} from '../store/reducer';
+import {store} from '../store';
+import {getMoviesAction, setGenreAction} from '../store/actions';
+
 
 const mainCardData: IMovieData = {
   name: 'The Grand Budapest Hotel',
@@ -12,18 +17,23 @@ const mainCardData: IMovieData = {
 };
 
 
-const MainPage = ({ movieData }: { movieData: IMovieData[] }) => {
+const MainPage = () => {
 
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeCard, setActiveCard] = useState('');
+  const dispatch = useDispatch<typeof store.dispatch>();
+  useEffect(() => {
+    dispatch(getMoviesAction());
+  }, []);
 
   const onHover = (name: string) => {
     setActiveCard(name);
   };
 
   const renderCard = (movie: IMovieData[]) => movie.map((data) => <MovieCard key={data.name} {...data} onHover={onHover} />);
-  // eslint-disable-next-line no-console
-  console.log(activeCard);
+
+  const {genres, movies: movieData} = useSelector((state: InitialState) => state);
   return (
     <>
       <section className='film-card'>
@@ -64,36 +74,12 @@ const MainPage = ({ movieData }: { movieData: IMovieData[] }) => {
           <h2 className='catalog__title visually-hidden'>Catalog</h2>
 
           <ul className='catalog__genres-list'>
-            <li className='catalog__genres-item catalog__genres-item--active'>
-              <a href='#' className='catalog__genres-link'>All genres</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Comedies</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Crime</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Documentary</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Dramas</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Horror</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Kids & Family</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Romance</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Sci-Fi</a>
-            </li>
-            <li className='catalog__genres-item'>
-              <a href='#' className='catalog__genres-link'>Thrillers</a>
-            </li>
+            {genres.map((genre) => (
+              <li onClick={() => dispatch(setGenreAction(genre))} key={genre} className='catalog__genres-item catalog__genres-item--active'>
+                <a href='#' className='catalog__genres-link'>{genre}</a>
+              </li>
+            ))}
+
           </ul>
 
           <div className='catalog__films-list'>

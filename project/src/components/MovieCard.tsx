@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {IMovieData} from '../index';
+
 import VideoPlayer from '../VideoPlayer';
 
 interface ImovieCardProps extends IMovieData {

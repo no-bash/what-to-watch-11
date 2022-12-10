@@ -1,8 +1,10 @@
 import React from 'react';
-import {IMovieData} from '../index';
 import {Link, useParams} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import {InitialState} from '../store/reducer';
 
-const MyList = ({ movieData }: { movieData: IMovieData[] }) => {
+const MyList = () => {
+  const {movies: movieData} = useSelector((state: InitialState) => state);
   const {id} = useParams<{id: string}>();
   return(
     <div className='user-page'>
@@ -34,7 +36,7 @@ const MyList = ({ movieData }: { movieData: IMovieData[] }) => {
         <div className='catalog__films-list'>
           {
             movieData.map((data) => (
-              <article className='small-film-card catalog__films-card'>
+              <article key={data.name} className='small-film-card catalog__films-card'>
                 <div className='small-film-card__image'>
                   <img src={data.img}
                     alt={data.name} width='280' height='175'
