@@ -27,11 +27,13 @@ const MainPage = () => {
     dispatch(getMoviesAction());
   }, []);
 
+  const [movieIndex, setMovieIndex] = useState(1);
+
   const onHover = (name: string) => {
     setActiveCard(name);
   };
 
-  const renderCard = (movie: IMovieData[]) => movie.map((data) => <MovieCard key={data.name} {...data} onHover={onHover} />);
+  const renderCard = (movie: IMovieData[]) => movie.slice(0, 8 * movieIndex).map((data) => <MovieCard key={data.name} {...data} onHover={onHover} />);
 
   const {genres, movies: movieData} = useSelector((state: InitialState) => state);
   return (
@@ -86,9 +88,10 @@ const MainPage = () => {
             { renderCard(movieData) }
           </div>
 
-          <div className='catalog__more'>
-            <button className='catalog__button' type='button'>Show more</button>
-          </div>
+          {movieIndex * 8 <= movieData.length &&
+            <div className='catalog__more'>
+              <button onClick={() => setMovieIndex(movieIndex + 1)} className='catalog__button' type='button'>Show more</button>
+            </div>}
         </section>
 
         <footer className='page-footer'>
