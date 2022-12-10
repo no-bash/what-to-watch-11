@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 const ReviewForm = () => {
-  const [rating, setRating] = useState(0);
+  const [, setRating] = useState(0);
   const [text, setText] = useState('');
   return (
     <form action='#' className='add-review__form'>

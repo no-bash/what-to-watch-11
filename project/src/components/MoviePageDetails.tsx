@@ -1,7 +1,6 @@
 import React from 'react';
-import AddReview from './AddReview';
 import {Link} from 'react-router-dom';
-import Tab from "./pageTabs/Tab";
+import Tab from './pageTabs/Tab';
 
 
 const MoviePageDetails = () => (

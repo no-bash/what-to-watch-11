@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import VideoPlayer from '../VideoPlayer';
+import {IMovieData} from '../types/types';
 
 interface ImovieCardProps extends IMovieData {
   onHover: (name: string) => void;
