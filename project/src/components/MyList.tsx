@@ -38,7 +38,7 @@ const MyList = () => {
             movieData.map((data) => (
               <article key={data.name} className='small-film-card catalog__films-card'>
                 <div className='small-film-card__image'>
-                  <img src={data.img}
+                  <img src={data.previewImage}
                     alt={data.name} width='280' height='175'
                   />
                 </div>

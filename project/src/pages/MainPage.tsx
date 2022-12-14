@@ -1,18 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import MovieCard from '../components/MovieCard';
+import Loader from '../components/Loader';
 import MainCard from '../components/MainCard';
 import {IMovieData} from '../types/types';
 import {useDispatch, useSelector} from 'react-redux';
 import {InitialState} from '../store/reducer';
 import {store} from '../store';
-import {getMoviesAction, setGenreAction} from '../store/actions';
+import { setGenreAction} from '../store/actions';
 
 
 const mainCardData: IMovieData = {
+  id: 1,
+  previewImage: '',
+  backgroundImage: '',
+  backgroundColor: '',
+  videoLink: '',
+  description: '',
+  rating: 10,
+  scoresCount: 1,
+  director: '',
+  starring: [''],
+  runTime: 10,
+  isFavorite: true,
   name: 'The Grand Budapest Hotel',
-  img: 'the-grand-budapest-hotel-poster',
+  posterImage: 'https://11.react.pages.academy/static/film/poster/A_Star_Is_Born.jpg',
   genre: 'Drama',
-  releaseDate: 2014,
+  released: 2014,
   previewVideoLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
 };
 
@@ -20,12 +33,9 @@ const mainCardData: IMovieData = {
 const MainPage = () => {
 
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [activeCard, setActiveCard] = useState('');
+  const [, setActiveCard] = useState('');
   const dispatch = useDispatch<typeof store.dispatch>();
-  useEffect(() => {
-    dispatch(getMoviesAction());
-  }, []);
+
 
   const [movieIndex, setMovieIndex] = useState(1);
 
@@ -35,7 +45,11 @@ const MainPage = () => {
 
   const renderCard = (movie: IMovieData[]) => movie.slice(0, 8 * movieIndex).map((data) => <MovieCard key={data.name} {...data} onHover={onHover} />);
 
-  const {genres, movies: movieData} = useSelector((state: InitialState) => state);
+  const {genres, movies: movieData, isLoad} = useSelector((state: InitialState) => state);
+  if(isLoad) {
+    return <Loader />;
+  }
+
   return (
     <>
       <section className='film-card'>
