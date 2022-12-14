@@ -1,20 +1,19 @@
 import React from 'react';
-import {IMovieData} from '../index';
 
-const MainCard = ({name, img, genre, releaseDate}: IMovieData): JSX.Element => (
+import {IMovieData} from '../types/types';
+
+const MainCard = ({name, posterImage, genre, released}: IMovieData): JSX.Element => (
   <div className='film-card__wrap'>
     <div className='film-card__info'>
       <div className='film-card__poster'>
-        {/*<img src={'img/the-grand-budapest-hotel-poster.jpg'} alt={name} />*/}
-        {/*eslint-disable-next-line*/}
-        <img src={require(`../../public/img/${img}.jpg`)} width='218' height='327' />
+        <img src={posterImage} width='218' height='327' />
       </div>
 
       <div className='film-card__desc'>
         <h2 className='film-card__title'>{name}</h2>
         <p className='film-card__meta'>
           <span className='film-card__genre'>{genre}</span>
-          <span className='film-card__year'>{releaseDate}</span>
+          <span className='film-card__year'>{released}</span>
         </p>
 
         <div className='film-card__buttons'>
