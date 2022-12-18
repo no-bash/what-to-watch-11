@@ -1,13 +1,13 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import MainPage from '../../pages/MainPage';
-import SignIn from '../SignIn';
-import MyList from '../MyList';
+import MainPage from '../../pages/main-page';
+import SignIn from '../sign-in';
+import MyList from '../my-list';
 import Player from '../Player';
-import AddReview from '../AddReview';
+import AddReview from '../review/add-review';
 import Page404 from '../../pages/Page404';
-import PrivateRoute from '../PrivateRoute';
-import MoviePageDetails from '../MoviePageDetails';
+import PrivateRoute from '../private-route';
+import MoviePageDetails from '../movie-page-details';
 
 export interface IReviewData {
   comment: string;

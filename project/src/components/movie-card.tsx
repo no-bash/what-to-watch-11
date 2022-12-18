@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 
 import VideoPlayer from '../VideoPlayer';
 import {IMovieData} from '../types/types';
+import {Link} from 'react-router-dom';
 
 interface ImovieCardProps extends IMovieData {
   onHover: (name: string) => void;
 }
 
 
-const MovieCard = ({name, previewImage, onHover, previewVideoLink}: ImovieCardProps): JSX.Element => {
+const MovieCard = ({name, previewImage, onHover, previewVideoLink, id}: ImovieCardProps): JSX.Element => {
   const [isPlayerActive, setIsPlayerActive] = useState(false);
   const cardHoverHandler = () => {
     onHover(name);
@@ -27,7 +28,7 @@ const MovieCard = ({name, previewImage, onHover, previewVideoLink}: ImovieCardPr
         <img src={previewImage} alt={'name'} width='280' height='175' />
       </div>
       <h3 className='small-film-card__title'>
-        <a className='small-film-card__link' href='film-page.html'>{name}</a>
+        <Link className='small-film-card__link' to={`/films/${id}`}>{name}</Link>
       </h3>
     </article>
   );

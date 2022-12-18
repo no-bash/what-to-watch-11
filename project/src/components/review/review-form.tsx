@@ -1,10 +1,30 @@
 import {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {store} from '../../store';
+import {handleAddCommentAction} from '../../store/actions';
+import {useParams} from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 const ReviewForm = () => {
-  const [, setRating] = useState(0);
+  const [rating, setRating] = useState(0);
   const [text, setText] = useState('');
+  const dispatch = useDispatch<typeof store.dispatch>();
+  const params = useParams<{id: string}>();
+
+  const handleSubmitClick = (evt: React.SyntheticEvent) => {
+    evt.preventDefault();
+    if(text.length >= 50 && rating) {
+      dispatch(handleAddCommentAction({
+        id: Number(params.id),
+        comment: text,
+        rating
+      }));
+      return;
+    }
+    toast.warn('Текст должен быть более 50 символов и рейтинг должен быть не пустым');
+  };
   return (
-    <form action='#' className='add-review__form'>
+    <form className='add-review__form'>
       <div className='rating'>
         <div className='rating__stars'>
           <input className='rating__input' onChange={()=> setRating(10)} id='star-10' type='radio' name='rating' value='10'/>
@@ -48,7 +68,12 @@ const ReviewForm = () => {
         >
         </textarea>
         <div className='add-review__submit'>
-          <button className='add-review__btn' type='submit'>Post</button>
+          <button
+            onClick={handleSubmitClick}
+            className='add-review__btn' type='submit'
+          >
+            Post
+          </button>
         </div>
 
       </div>
